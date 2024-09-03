@@ -7,18 +7,22 @@
 // Parameters : height → triangle height
 
 let triangle = (totalNumber: number) => {
-    let sequence: any[] = []
+    let sequence = ''
     let rowCurrent = 1
     let counterReset = 0
     for (let i = 1; i <= totalNumber; i++) {
-        sequence.push([i])
+        let contender = i.toString()
+        if (contender.length < 3) {
+            contender = `0${i}`
+        }
+        sequence += contender
 
         counterReset ++
 
         if (counterReset === rowCurrent) {
             counterReset = 0
             rowCurrent++
-            sequence.push(["\n"])
+            sequence += "\n"
         }
     }
     return sequence
